@@ -1,19 +1,27 @@
-# Hello Edge
+# Supersaas Lite
 
-A minimal [Nuxt](https://nuxt.com) starter deployed on the Edge using [NuxtHub](https://hub.nuxt.com).
+A minimal fullstack starter template deployed on the Edge using [NuxtHub](https://hub.nuxt.com).
 
-https://hello.nuxt.dev
+Demo - [https://supersaas-lite.nuxt.dev/](https://supersaas-lite.nuxt.dev/?ref=github-readme-supersaas-lite)
 
-<a href="https://hello.nuxt.dev">
-<img src="https://github.com/nuxt-hub/hello-edge/assets/904724/99d1bd54-ef7e-4ac9-83ad-0a290f85edcf" alt="Hello World template for NuxtHub" />
-</a>
 
 ## Features
 
-- Server-Side rendering on Cloudflare Workers
-- ESLint setup
-- Ready to add a database, blob and KV storage
-- One click deploy on 275+ locations for free
+- Google, Github & Discord login
+- Database setup
+- Typescript
+- CRUD APIs
+- User Settings
+- Simple Note app use case
+
+Supersaas lite is a part of [Supersaas Pro](https://supersaas.dev?ref=supersaas-lite-github-readme) - The fulsltack Nuxt 3 template that comes with 
+
+- Auth - Email/Password, Magic Link, One time passwords, Passkeys, Social Auth
+- DB - Turso, NuxtHub or Postgres
+- Payments - Manage user payment subscriptions using Stripe or Lemonsqueezy
+- Emails - send emails with 5 providers to choose from - Sendgrid, Postmark, Resend, Plunk and Mailgun
+- File storage - Upload, Delete and manipulate files - AWS S3, Nuxthub, Cloudflare R2 or even local file storage
+- Super Admin Mode - Add users, send password reset links, ban/unban and delete users.
 
 ## Setup
 
@@ -23,10 +31,16 @@ Make sure to install the dependencies with [pnpm](https://pnpm.io/installation#u
 pnpm install
 ```
 
-You can update the main text displayed by creating a `.env`:
+Set the environment variables
 
 ```bash
-NUXT_PUBLIC_HELLO_TEXT="Hello my world!"
+NUXT_OAUTH_GITHUB_CLIENT_ID
+NUXT_OAUTH_GITHUB_CLIENT_SECRET
+NUXT_OAUTH_GOOGLE_CLIENT_ID
+NUXT_OAUTH_GOOGLE_CLIENT_SECRET
+NUXT_OAUTH_DISCORD_CLIENT_ID
+NUXT_OAUTH_DISCORD_CLIENT_SECRET
+NUXT_SESSION_PASSWORD=32_CHAR_ALPHA_NUMERIC_STRING
 ```
 
 ## Development Server
