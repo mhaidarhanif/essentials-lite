@@ -33,7 +33,7 @@
   "devDependencies": {
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
-    "drizzle-kit": "^0.29.0",
+    "drizzle-kit": "^0.29.1",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",

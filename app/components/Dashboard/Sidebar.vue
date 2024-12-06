@@ -27,12 +27,20 @@
             <ULink
               :to="`/dashboard/notes/${note.id}`"
               exact
-              class="flex h-[30px] items-center gap-2 rounded-md p-2 font-medium hover:bg-zinc-200/80 dark:hover:bg-white/20"
+              class="group flex h-[30px] items-center gap-2 rounded-md p-2 font-medium hover:bg-zinc-200/80 dark:hover:bg-white/20"
               active-class="text-zinc-900 dark:text-white bg-zinc-200/70 dark:bg-white/10 hover:bg-zinc-200/80 dark:hover:bg-white/20"
               inactive-class="text-[var(--ui-text-muted)]"
             >
               <UIcon name="i-lucide-file-text" class="h-4 w-4" />
               <p class="truncate text-sm">{{ note.title }}</p>
+              <span class="flex-1" />
+              <UButton
+                icon="i-lucide-trash-2"
+                variant="link"
+                color="neutral"
+                size="xs"
+                class="opacity-0 group-hover:opacity-100"
+              />
             </ULink>
           </li>
         </ul>
@@ -73,6 +81,12 @@
             >
               <UIcon :name="link.icon" class="h-4 w-4" />
               <p class="text-sm">{{ link.label }}</p>
+              <span class="flex-1" />
+              <UButton
+                icon="i-lucide-ellipsis-vertical"
+                variant="soft"
+                color="neutral"
+              />
             </ULink>
           </li>
         </ul>
@@ -89,7 +103,8 @@
 
 <script setup lang="ts">
 const isMobileOpen = useState('mobile-sidebar', () => false)
-const { data: notes } = useNuxtData('notes')
+import type { Note} from '@@/types/database'
+const notes = useState<Note[]>('notes')
 
 const links = [
   {

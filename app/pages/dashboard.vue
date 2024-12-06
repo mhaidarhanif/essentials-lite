@@ -9,11 +9,6 @@
 definePageMeta({
   middleware: ['auth'],
 })
-const nuxtApp = useNuxtApp()
-await useFetch('/api/notes', {
-  key: 'notes',
-  getCachedData(key) {
-    return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-  },
-})
+const { data } = await useFetch('/api/notes')
+useState('notes', () => data.value)
 </script>

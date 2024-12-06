@@ -50,7 +50,7 @@ const note = ref<Partial<InsertNote>>({
   content: '',
 })
 const loading = ref(false)
-const { data: notes } = useNuxtData('notes')
+const notes = useState('notes')
 const saveNote = async () => {
   try {
     const data = await $fetch('/api/notes', {

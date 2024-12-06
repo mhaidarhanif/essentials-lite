@@ -9,7 +9,7 @@
       />
     </template>
     <div>
-      <UContainer class="py-24">
+      <UContainer class="py-8">
         <div class="grid grid-cols-4 gap-4">
           <DashboardNoteCard
             v-for="note in notes"
@@ -23,5 +23,6 @@
 </template>
 
 <script setup lang="ts">
-const { data: notes } = useNuxtData('notes')
+import type { Note} from '@@/types/database'
+const notes = useState<Note[]>('notes')
 </script>

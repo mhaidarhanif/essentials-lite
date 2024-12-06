@@ -6,8 +6,27 @@
         @click="saveNote"
         color="neutral"
         variant="soft"
-        >Save</UButton
+        icon="i-lucide-trash-2"
       >
+        Delete
+      </UButton>
+      <UButton
+        :loading="loading"
+        @click="saveNote"
+        color="neutral"
+        variant="soft"
+        icon="i-lucide-globe"
+      >
+        Publish
+      </UButton>
+      <UButton
+        :loading="loading"
+        @click="saveNote"
+        color="neutral"
+        variant="soft"
+      >
+        Save
+      </UButton>
     </template>
     <div>
       <DashboardNoteMedia v-model="note.image" />
@@ -43,11 +62,10 @@
 
 <script setup lang="ts">
 import type { Note, InsertNote } from '@@/types/database'
-
+const notes = useState<Note[]>('notes')
 const route = useRoute()
-const { data: notes } = useNuxtData('notes')
 const fetchedNote = computed(() =>
-  notes.value?.find((note: Note) => note.id === route.params.id),
+  notes.value?.find((note) => note.id === route.params.id),
 )
 
 const note = ref<Partial<InsertNote>>({
@@ -62,6 +80,9 @@ const saveNote = async () => {
       method: 'PATCH',
       body: note.value,
     })
+    notes.value = notes.value?.map((n: Note) =>
+      n.id === route.params.id ? note.value : n,
+    )
   } catch (error) {
     console.error(error)
   }
