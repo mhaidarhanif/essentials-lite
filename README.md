@@ -14,7 +14,7 @@ Demo - [https://supersaas-lite.nuxt.dev/](https://supersaas-lite.nuxt.dev/?ref=g
 - User Settings
 - Simple Note app use case
 
-Supersaas lite is a part of [Supersaas Pro](https://supersaas.dev?ref=supersaas-lite-github-readme) - The fulsltack Nuxt 3 template that comes with 
+Supersaas lite is a part of [Supersaas Pro](https://supersaas.dev?ref=supersaas-lite-github-readme) - The fullstack Nuxt 3 template that comes with 
 
 - Auth - Email/Password, Magic Link, One time passwords, Passkeys, Social Auth
 - DB - Turso, NuxtHub or Postgres
