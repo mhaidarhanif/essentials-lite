@@ -53,11 +53,6 @@ const items = ref([
   ],
   [
     {
-      label: 'Profile',
-      icon: 'i-lucide-user',
-      to: '/dashboard/settings',
-    },
-    {
       label: 'Billing',
       icon: 'i-lucide-credit-card',
       to: '/dashboard/billing',

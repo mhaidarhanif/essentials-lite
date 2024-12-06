@@ -33,14 +33,6 @@
             >
               <UIcon name="i-lucide-file-text" class="h-4 w-4" />
               <p class="truncate text-sm">{{ note.title }}</p>
-              <span class="flex-1" />
-              <UButton
-                icon="i-lucide-trash-2"
-                variant="link"
-                color="neutral"
-                size="xs"
-                class="opacity-0 group-hover:opacity-100"
-              />
             </ULink>
           </li>
         </ul>
@@ -81,12 +73,6 @@
             >
               <UIcon :name="link.icon" class="h-4 w-4" />
               <p class="text-sm">{{ link.label }}</p>
-              <span class="flex-1" />
-              <UButton
-                icon="i-lucide-ellipsis-vertical"
-                variant="soft"
-                color="neutral"
-              />
             </ULink>
           </li>
         </ul>
@@ -102,8 +88,10 @@
 </template>
 
 <script setup lang="ts">
+import type { Note } from '@@/types/database'
+import { toast } from 'vue-sonner'
+
 const isMobileOpen = useState('mobile-sidebar', () => false)
-import type { Note} from '@@/types/database'
 const notes = useState<Note[]>('notes')
 
 const links = [

@@ -42,26 +42,29 @@
 </template>
 
 <script setup lang="ts">
-import type { InsertNote } from '@@/types/database'
-
+import type { InsertNote, Note } from '@@/types/database'
+import { toast } from 'vue-sonner'
 const note = ref<Partial<InsertNote>>({
   title: 'Untitled note',
   image: '',
   content: '',
 })
 const loading = ref(false)
-const notes = useState('notes')
+const notes = useState<Note[]>('notes')
+
 const saveNote = async () => {
   try {
     const data = await $fetch('/api/notes', {
       method: 'POST',
       body: note.value,
     })
+    toast.success('Note saved')
     if (data.id) {
       notes.value?.push(data)
       return navigateTo(`/dashboard/notes/${data.id}`)
     }
   } catch (error) {
+    toast.error('Failed to save note')
     console.error(error)
   }
 }

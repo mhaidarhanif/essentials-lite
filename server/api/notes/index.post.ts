@@ -9,8 +9,8 @@ export default defineEventHandler(async (event) => {
     (body) =>
       z
         .object({
-          title: z.string().min(1).max(50),
-          content: z.string().min(1).max(100),
+          title: z.string().min(1).max(256),
+          content: z.string().min(1).max(5000),
           image: z.string().optional(),
           icon: z.string().optional(),
         })

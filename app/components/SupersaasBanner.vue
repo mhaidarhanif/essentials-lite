@@ -6,13 +6,13 @@
       class="block rounded-t-3xl bg-zinc-950 p-2 transition-shadow duration-300 hover:ring-4 hover:ring-gray-300 dark:bg-zinc-800 dark:hover:ring-white/10"
     >
       <div
-        class="shimmer-container flex items-center gap-2 rounded-full bg-zinc-700 p-1"
+        class="shimmer-container flex items-center gap-2 rounded-full bg-zinc-700 p-1.5"
       >
-        <UAvatar
+        <img
           src="https://supersaas.dev/logo.png"
           alt="Supersaas Logo"
           size="xs"
-          class="p-1"
+          class="h-6 w-auto ml-1"
         />
         <p class="text-sm font-bold text-white">Get Supersaas pro</p>
         <UIcon
@@ -21,7 +21,7 @@
         />
       </div>
       <ul
-        class="max-h-0 origin-top translate-y-2 transform space-y-1 overflow-hidden pl-1.5 opacity-0 transition-all duration-500 group-hover:max-h-[300px] group-hover:translate-y-0 group-hover:opacity-100"
+        class="max-h-0 origin-top translate-y-2 transform space-y-1 overflow-hidden pl-3 opacity-0 transition-all duration-500 group-hover:max-h-[300px] group-hover:translate-y-0 group-hover:opacity-100"
       >
         <li class="mt-2 flex items-center gap-3">
           <UIcon name="i-lucide-check" class="h-4 w-4 text-green-500" />

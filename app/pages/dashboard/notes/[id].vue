@@ -3,7 +3,7 @@
     <template #actions>
       <UButton
         :loading="loading"
-        @click="saveNote"
+        @click="deleteNote"
         color="neutral"
         variant="soft"
         icon="i-lucide-trash-2"
@@ -62,6 +62,7 @@
 
 <script setup lang="ts">
 import type { Note, InsertNote } from '@@/types/database'
+import { toast } from 'vue-sonner'
 const notes = useState<Note[]>('notes')
 const route = useRoute()
 const fetchedNote = computed(() =>
@@ -83,7 +84,23 @@ const saveNote = async () => {
     notes.value = notes.value?.map((n: Note) =>
       n.id === route.params.id ? note.value : n,
     )
+    toast.success('Note saved')
   } catch (error) {
+    toast.error('Failed to save note')
+    console.error(error)
+  }
+}
+
+const deleteNote = async () => {
+  try {
+    await $fetch(`/api/notes/${route.params.id}`, {
+      method: 'DELETE',
+    })
+    notes.value = notes.value?.filter((n: Note) => n.id !== route.params.id)
+    toast.success('Note deleted')
+    navigateTo('/dashboard/notes')
+  } catch (error) {
+    toast.error('Failed to delete note')
     console.error(error)
   }
 }
